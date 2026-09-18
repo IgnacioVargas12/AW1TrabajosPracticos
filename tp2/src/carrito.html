@@ -13,14 +13,16 @@
             </a>
             
             <form role="search" action="#" method="get">
-                <label for="id_buscar" hidden>Buscar productos</label>
-                <input 
-                    type="search" 
-                    id="id_buscar" 
-                    name="busqueda" 
-                    placeholder="Buscar productos" 
-                    aria-label="Buscar productos en la tienda"
-                >
+                <div>
+                    <label for="id_buscar" hidden>Buscar productos</label>
+                    <input 
+                        type="search" 
+                        id="id_buscar" 
+                        name="busqueda" 
+                        placeholder="Buscar productos" 
+                        aria-label="Buscar productos en la tienda"
+                    >
+                </div>
             </form>
 
             <a href="./login.html" aria-label="Ir al perfil de usuario">
@@ -51,54 +53,90 @@
         <main>
             <h1>Carrito de compras</h1>
             <section>
-                <h2>Productos</h2>
-                <div>
-                    <p><strong>Producto</strong></p>
-                    <p><strong>Cantidad</strong></p>
-                    <p><strong>Total</strong></p>
-                </div>
-                <article>
-                    <div>
-                        <img src="./recursos/imagenes/productos/suplementos/whey_protein_ena.webp" alt="Whey Protein Concentrada 1kg" width="100">
-                        <h3>Whey Protein Concentrada 1kg</h3>
-                        <p>$49.999</p>
-                        <p>Proteína en polvo sabor chocolate.</p>
-                    </div>
-                    <form action="#" method="post">
-                        <label for="id-cantidad">Cantidad</label>
-                        <select id="id-cantidad" name="cantidad">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                        <button type="submit">Quitar</button>
-                    </form>
-                    <p>
-                        <strong>$49.999</strong>
-                    </p>
-                </article>
+                <h2>Productos en el carrito</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <figure>
+                                    <img src="./recursos/imagenes/productos/suplementos/whey_protein_ena.webp" alt="Whey Protein Concentrada 1kg" width="100">
+                                </figure>
+                                <div>
+                                    <h3>Whey Protein Concentrada 1kg</h3>
+                                    <p>$49.999</p>
+                                    <p>Proteína en polvo sabor chocolate.</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <form action="#" method="post">
+                                        <div>
+                                            <label for="id-cantidad">Cantidad:</label>
+                                            <input type="number" id="id-cantidad" name="cantidad" min="1" value="1" max="10" required>
+                                        </div>
+                                        <div>
+                                            <button type="submit">Quitar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </td>
+                            <td>
+                                <p><strong>$49.999</strong></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
             <section>
                 <h2>Calcular gastos de envío</h2>
-                <form action="#" method="get">
-                    <p>
-                        <label for="id-provincia">Provincia</label><br>
-                        <select id="id-provincia" name="provincia">
-                            <option value="cordoba">Córdoba</option>
-                            <option value="buenos-aires">Buenos Aires</option>
-                            <option value="santa-fe">Santa Fe</option>
-                            <option value="mendoza">Mendoza</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="id-codigo-postal">Código postal</label><br>
-                        <input type="text" id="id-codigo-postal" name="codigo-postal" placeholder="Código postal">
-                    </p>
-                    <p>
-                        <button type="submit">Consultar</button>
-                    </p>
-                </form>
+                <div>
+                    <form action="#" method="get">
+                        <div>
+                            <label for="id-provincia">Provincia</label><br>
+                            <select id="id-provincia" name="provincia" required>
+                                <option value="" disabled selected>Selecciona tu provincia</option>
+                                <option value="buenos-aires">Buenos Aires</option>
+                                <option value="caba">Ciudad Autónoma de Buenos Aires</option>
+                                <option value="catamarca">Catamarca</option>
+                                <option value="chaco">Chaco</option>
+                                <option value="chubut">Chubut</option>
+                                <option value="cordoba">Córdoba</option>
+                                <option value="corrientes">Corrientes</option>
+                                <option value="entre-rios">Entre Ríos</option>
+                                <option value="formosa">Formosa</option>
+                                <option value="jujuy">Jujuy</option>
+                                <option value="la-pampa">La Pampa</option>
+                                <option value="la-rioja">La Rioja</option>
+                                <option value="mendoza">Mendoza</option>
+                                <option value="misiones">Misiones</option>
+                                <option value="neuquen">Neuquén</option>
+                                <option value="rio-negro">Río Negro</option>
+                                <option value="salta">Salta</option>
+                                <option value="san-juan">San Juan</option>
+                                <option value="san-luis">San Luis</option>
+                                <option value="santa-cruz">Santa Cruz</option>
+                                <option value="santa-fe">Santa Fe</option>
+                                <option value="santiago-del-estero">Santiago del Estero</option>
+                                <option value="tierra-del-fuego">Tierra del Fuego</option>
+                                <option value="tucuman">Tucumán</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="id-codigo-postal">Código postal</label>
+                            <input type="text" id="id-codigo-postal" name="codigo-postal" placeholder="Código postal">
+                        </div>
+                        <div>
+                            <button type="submit">Consultar</button>
+                        </div>
+                    </form>
+                </div>
             </section>
             <aside>
                 <h2>Resumen de compra</h2>
@@ -106,7 +144,7 @@
                 <p>Envío:<strong>A calcular</strong></p>
                 <p><strong>Total: $49.999</strong></p>
                 <form action="#" method="post">
-                    <p><label for="id-nota">Nota del pedido</label><br><textarea name="nota" id="id-nota" rows="5"></textarea></p>
+                    <p><label for="id-nota">Nota del pedido</label><textarea name="nota" id="id-nota" rows="5"></textarea></p>
                     <p><button type="submit">Finalizar compra</button></p>
                 </form>
             </aside>

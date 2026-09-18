@@ -13,14 +13,16 @@
             </a>
             
             <form role="search" action="#" method="get">
-                <label for="id_buscar" hidden>Buscar productos</label>
-                <input 
-                    type="search" 
-                    id="id_buscar" 
-                    name="busqueda" 
-                    placeholder="Buscar productos" 
-                    aria-label="Buscar productos en la tienda"
-                >
+                <div>
+                    <label for="id_buscar" hidden>Buscar productos</label>
+                    <input 
+                        type="search" 
+                        id="id_buscar" 
+                        name="busqueda" 
+                        placeholder="Buscar productos" 
+                        aria-label="Buscar productos en la tienda"
+                    >
+                </div>
             </form>
 
             <a href="./login.html" aria-label="Ir al perfil de usuario">
@@ -50,6 +52,73 @@
 
         <main>
             <h1>Detalle del Producto</h1>
+            <section>
+                <figure>
+                    <img src="./recursos/imagenes/productos/suplementos/whey_protein_ena.webp" alt="Whey Protein - ENA" height="400">
+                </figure>
+                <div>
+                    <h2>Proteína Whey Gold 1kg</h2>
+                    <p>Marca: ENA</p>
+                    <p><strong>$45.000</strong> (Hasta 6 cuotas sin interés)</p>
+                    <p>
+                        Suplemento dietario a base de proteína de suero de leche concentrada y aislada. 
+                        Ideal para la recuperación muscular posterior al entrenamiento.
+                    </p>
+                    <p>Sabor: Chocolate</p>
+                    <form action="./carrito.html" method="post">
+                        <div>
+                            <label for="id-cantidad">Cantidad:</label>
+                            <input type="number" id="id-cantidad" name="cantidad" min="1" value="1" max="10" required>
+                            <button type="submit">Agregar al carrito</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section>
+                <h3>Información Nutricional</h3>
+                <table>
+                    <caption>Valores nutricionales por porción (30g)</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nutrientes</th>
+                            <th scope="col">Cantidad por porción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Valor Energético</td>
+                            <td>120 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Proteínas</td>
+                            <td>24 g</td>
+                        </tr>
+                        <tr>
+                            <td>Carbohidratos</td>
+                            <td>2 g</td>
+                        </tr>
+                        <tr>
+                            <td>Grasas Totales</td>
+                            <td>1.5 g</td>
+                        </tr>
+                        <tr>
+                            <td>Sodio</td>
+                            <td>130 mg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h3>Productos relacionados</h3>
+                <article>
+                    <figure>
+                        <a href="./detalle_producto.html"><img src="./recursos/imagenes/productos/suplementos/creatina.webp" alt="Creatina Monohidratada" height="200"></a>
+                    </figure>
+                    <h4>Creatina Monohidratada</h4>
+                    <p>$38.000</p>
+                    <a href="./detalle_producto.html">Ver producto</a>
+                </article>
+            </section>
         </main>
 
         <footer>
