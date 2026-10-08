@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Apex Fit - Contacto</title>
+        <link rel="stylesheet" href="./recursos/estilos/base.css">
+    </head>
+
+    <body>
+        <header class="contenido-encabezado">
+            <!-- 1. Botón Hamburguesa (Checkbox Hack) -->
+            <input type="checkbox" id="menu-toggle" hidden>
+            <label for="menu-toggle" class="btn-hamburguesa" aria-label="Abrir menú">☰</label>
+
+            <!-- 2. Logo Central -->
+            <a href="./index.html" class="logo-principal" aria-label="Volver a la página principal">
+                <img src="./recursos/imagenes/logos/imagotipo_blanco.webp" alt="Logo de Apex Fit"> 
+            </a>
+
+            <!-- 3. Contenedor para agrupar Usuario y Carrito a la derecha -->
+            <div class="iconos-derecha">
+                <a href="./login.html" aria-label="Ir al perfil de usuario">
+                    <img src="./recursos/imagenes/elementos/logo_usuario_blanco.webp" alt="Logo de usuario">
+                </a>
+                <a href="./carrito.html" aria-label="Ir al carrito de compras">
+                    <img src="./recursos/imagenes/elementos/logo_carrito_blanco.webp" alt="Logo de carrito">
+                </a>
+            </div>
+
+            <!-- 4. Buscador (Pasará a la segunda línea) -->
+            <form role="search" action="#" method="get" class="barra-busqueda">
+                <div>
+                    <label for="id_buscar" hidden>Buscar productos</label>
+                    <input type="search" id="id_buscar" name="busqueda" placeholder="¿Qué estás buscando?">
+                </div>
+            </form>
+
+            <!-- 5. Menú de navegación (Oculto por defecto) -->
+            <nav class="menu-desplegable">
+                <a href="./index.html">Inicio</a>
+                <a href="./catalogo.html" aria-label="Ir al catálogo">Catálogo</a>
+                <a href="./blog.html" aria-label="Ir al blog">Blog</a>
+                <a href="./ofertas.html" aria-label="Ir a las ofertas">Ofertas</a>
+                <a href="./contacto.html" aria-label="Ir al contacto">Contacto</a>
+            </nav>
+        </header>
+
+        <main class="contenido-principal">
+            <h1>Contacto</h1>
+            <adress>
+                <h2>Información de Atención</h2>
+                <p><strong>Sucursal Central:</strong> Córdoba, Argentina</p>
+                <p><strong>Horarios:</strong> Lunes a Viernes de 09:00 a 20:00 hs | Sábados de 09:00 a 13:00 hs</p>
+                <p><strong>Teléfono:</strong> <a href="tel:+543511234567">+54 (351) 123-4567</a></p>
+                <p><strong>Email:</strong> <a href="mailto:contacto@apexfitness.com">contacto@apexfitness.com</a></p>
+            </adress>
+
+            <h2>Envianos tu consulta</h2>
+            <div>
+                <form action="#" method="post">
+                    <label for="id-nombre">Nombre</label>
+                    <input type="text" name="nombre" id="id-nombre">
+                    <label for="id-apellido">Apellido</label>
+                    <input type="text" name="apellido" id="id-apellido">
+                    <label for="id-correo">Email</label>
+                    <input type="email" name="correo" id="id-correo">
+                    <label for="id-telefono">Teléfono (Opcional)</label>
+                    <input type="tel" name="telefono" id="id-telefono">
+                    <label for="id-comentario">Mensaje</label>
+                    <textarea name="comentario" id="id-comentario" rows="5"></textarea>
+                    <button type="reset" class="boton-secundario">Limpiar</button>
+                    <button type="submit" class="boton-principal">Enviar</button>
+                </form>
+            </div>
+        </main>
+
+        <footer class="contenido-pie-pagina">
+            <h2>Apex Fitness</h2>
+            <p>Tu tienda de confianza en suplementación deportiva y rendimiento físico.</p>
+    
+            <div>
+                <h3>Navegación</h3>
+                <ul>
+                    <li>
+                        <a href="./index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="./catalogo.html">Catálogo de Productos</a>
+                    </li>
+                    <li>
+                        <a href="./ofertas.html">Ofertas Especiales</a>
+                    </li>
+                    <li>
+                        <a href="./blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="./contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Contacto</h3>
+                <address>
+                    <p>Email: <a href="mailto:contacto@apexfitness.com">contacto@apexfitness.com</a></p>
+                    <p>Teléfono: <a href="tel:+543511234567">+54 (351) 123-4567</a></p>
+                    <p>Ubicación: Córdoba, Argentina</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108977.21681732398!2d-64.27204465751257!3d-31.399299422302242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432985f478f5b69%3A0xb0a24f9a5366b092!2zQ8OzcmRvYmE!5e0!3m2!1ses!2sar!4v1789492028172!5m2!1ses!2sar" width="450" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </address>
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="https://instagram.com/@ApexFitness" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://facebook.com/@ApexFitness" target="_blank" rel="noopener">Facebook</a></li>
+                    <li><a href="https://tiktok.com/@ApexFitness" target="_blank" rel="noopener">TikTok</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p><small>&copy; 2026 Apex Fitness. Todos los derechos reservados. Proyecto académico - Aplicaciones Web I.</small></p>
+            </div>
+        </footer>
+    </body>
+</html>

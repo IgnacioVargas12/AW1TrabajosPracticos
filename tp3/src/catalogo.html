@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Apex Fit - Catálogo</title>
+        <link rel="stylesheet" href="./recursos/estilos/base.css">
+    </head>
+
+    <body>
+        <header class="contenido-encabezado">
+            <!-- 1. Botón Hamburguesa (Checkbox Hack) -->
+            <input type="checkbox" id="menu-toggle" hidden>
+            <label for="menu-toggle" class="btn-hamburguesa" aria-label="Abrir menú">☰</label>
+
+            <!-- 2. Logo Central -->
+            <a href="./index.html" class="logo-principal" aria-label="Volver a la página principal">
+                <img src="./recursos/imagenes/logos/imagotipo_blanco.webp" alt="Logo de Apex Fit"> 
+            </a>
+
+            <!-- 3. Contenedor para agrupar Usuario y Carrito a la derecha -->
+            <div class="iconos-derecha">
+                <a href="./login.html" aria-label="Ir al perfil de usuario">
+                    <img src="./recursos/imagenes/elementos/logo_usuario_blanco.webp" alt="Logo de usuario">
+                </a>
+                <a href="./carrito.html" aria-label="Ir al carrito de compras">
+                    <img src="./recursos/imagenes/elementos/logo_carrito_blanco.webp" alt="Logo de carrito">
+                </a>
+            </div>
+
+            <!-- 4. Buscador (Pasará a la segunda línea) -->
+            <form role="search" action="#" method="get" class="barra-busqueda">
+                <div>
+                    <label for="id_buscar" hidden>Buscar productos</label>
+                    <input type="search" id="id_buscar" name="busqueda" placeholder="¿Qué estás buscando?">
+                </div>
+            </form>
+
+            <!-- 5. Menú de navegación (Oculto por defecto) -->
+            <nav class="menu-desplegable">
+                <a href="./index.html">Inicio</a>
+                <a href="./catalogo.html" aria-label="Ir al catálogo">Catálogo</a>
+                <a href="./blog.html" aria-label="Ir al blog">Blog</a>
+                <a href="./ofertas.html" aria-label="Ir a las ofertas">Ofertas</a>
+                <a href="./contacto.html" aria-label="Ir al contacto">Contacto</a>
+            </nav>
+        </header>
+
+        <main class="contenido-principal">
+            <h1>Catálogo de Productos</h1>
+            <h2>Categorías</h2>
+                <ul>
+                    <li><a href="#">Todas</a></li>
+                    <li><a href="#">Proteínas</a></li>
+                    <li><a href="#">Creatinas</a></li>
+                    <li><a href="#">Pre-Entrenos</a></li>
+                    <li><a href="#">Aminoácidos / BCAA</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                </ul>
+            <section>
+                <label for="id-ordenar">Ordenar por:</label>
+                <select id="id-ordenar" name="ordenar">
+                    <option value="relevancia">Relevancia</option>
+                    <option value="precio-bajo">Menor precio</option>
+                    <option value="precio-alto">Mayor precio</option>
+                    <option value="nombre">Nombre (A-Z)</option>
+                </select>
+            </section>
+            <h2>Nuestros Productos</h2>
+            <section class="grilla-productos">
+                <article class="tarjeta-producto">
+                    <figure>
+                        <a href="./detalle_producto.html">
+                            <img src="recursos/imagenes/productos/suplementos/whey_protein_ena.webp" alt="Whey Protein Concentrada 1kg">
+                        </a>
+                    </figure>
+                    <h3>Whey Protein Concentrada 1kg</h3>
+                    <p>WHEY PROTEIN 1KG: Proteina en polvo marca Ena, sabor a chocolate
+                    </p>
+                    <p><strong>$49.999</strong></p>
+                    <a href="./detalle_producto.html" class="boton-principal">Ver detalle</a>
+                </article>
+
+                <article class="tarjeta-producto">
+                    <figure>
+                        <a href="./detalle_producto.html">
+                            <img src="recursos/imagenes/productos/suplementos/proteina_creatina.webp" alt="Creatina Monohidratada 300g">
+                        </a>
+                    </figure>
+                    <h3>Creatina & Whey Protein 1kg - Star Nutrition 300g</h3>
+                    <p>Mejora la fuerza, potencia y rendimiento en entrenamientos intensos.</p>
+                    <p><strong>$99.999</strong></p>
+                    <a href="./detalle_producto.html" class="boton-principal">Ver detalle</a>
+                </article>
+
+                <article class="tarjeta-producto">
+                    <figure>
+                        <a href="./detalle_producto.html">
+                            <img src="recursos/imagenes/productos/suplementos/colageno_ena.webp" alt="Colageno 390g">
+                        </a>
+                    </figure>
+                    <h3>Colageno 400g</h3>
+                    <p>Fórmula avanzada con beta-alanina y cafeína para máximo enfoque.</p>
+                    <p><strong>$29.999</strong></p>
+                    <a href="./detalle_producto.html" class="boton-principal">Ver detalle</a>
+                </article>
+
+                <article class="tarjeta-producto">
+                    <figure>
+                        <a href="./detalle_producto.html">
+                            <img src="recursos/imagenes/productos/suplementos/creatina.webp" alt="Creactina & Whey Protein 250g">
+                        </a>
+                    </figure>
+                    <h3>Creatina Monohidratada 300g</h3>
+                    <p>Aminoácidos de cadena ramificada para evitar el catabolismo.</p>
+                    <p><strong>$49.999</strong></p>
+                    <a href="./detalle_producto.html" class="boton-principal">Ver detalle</a>
+                </article>
+            </section>
+        </main>
+
+        <footer class="contenido-pie-pagina">
+            <h2>Apex Fitness</h2>
+            <p>Tu tienda de confianza en suplementación deportiva y rendimiento físico.</p>
+    
+            <div>
+                <h3>Navegación</h3>
+                <ul>
+                    <li>
+                        <a href="./index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="./catalogo.html">Catálogo de Productos</a>
+                    </li>
+                    <li>
+                        <a href="./ofertas.html">Ofertas Especiales</a>
+                    </li>
+                    <li>
+                        <a href="./blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="./contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Contacto</h3>
+                <address>
+                    <p>Email: <a href="mailto:contacto@apexfitness.com">contacto@apexfitness.com</a></p>
+                    <p>Teléfono: <a href="tel:+543511234567">+54 (351) 123-4567</a></p>
+                    <p>Ubicación: Córdoba, Argentina</p> 
+                </address>
+
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="https://instagram.com/@ApexFitness" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://facebook.com/@ApexFitness" target="_blank" rel="noopener">Facebook</a></li>
+                    <li><a href="https://tiktok.com/@ApexFitness" target="_blank" rel="noopener">TikTok</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p><small>&copy; 2026 Apex Fitness. Todos los derechos reservados. Proyecto académico - Aplicaciones Web I.</small></p>
+            </div>
+        </footer>
+    </body>
+</html>
