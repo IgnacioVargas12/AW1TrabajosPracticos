@@ -326,6 +326,87 @@ a{
     font-size: 1rem;
 }
 
+/* Estilos de la sección Carrito */
+
+.seccion-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.seccion-carrito h1 {
+    margin-bottom: 0;
+}
+
+/* Información del producto */
+.producto-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.producto-carrito img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.producto-carrito h3 {
+    margin-top: 0;
+}
+
+/* Cantidad del producto */
+.cantidad-carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.cantidad-carrito input {
+    width: 70px;
+}
+
+/* Formulario de envío */
+.formulario-envio {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Selector de provincia */
+.seccion-carrito .campo-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* Resumen de compra */
+.detalle-resumen {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.total-carrito {
+    border-top: 1px solid #E2E8F0;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.total-carrito strong {
+    color: #1E293B;
+    font-size: 1.2rem;
+}
+
+/* Espacio entre nota y botón */
+.resumen-carrito .acciones-form {
+    margin-top: 1rem;
+}
+
 /* Globo Flotante de WhatsApp */
 .globo-whatsapp-flotante {
     position: fixed;
@@ -471,5 +552,18 @@ a{
 
     .campo-completo {
         grid-column: span 2;
+    }
+    /* Producto del carrito en Desktop */
+    .producto-carrito {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .info-producto-carrito {
+        flex: 1;
+    }
+    .seccion-carrito {
+    max-width: 1000px;
+    margin: 0 auto;
     }
 }
