@@ -32,6 +32,7 @@ h1,h2,h3,h4{
 
 a{
     text-decoration: none;
+    font-weight: bold;
 }
 
 /* Selectores de clase para ambas vistas */
@@ -76,6 +77,62 @@ a{
 
 .contenido-pie-pagina h2, .contenido-pie-pagina h3, .contenido-pie-pagina p, .contenido-pie-pagina a{
     color: #CBD5E1;
+}
+
+table {
+    width: 100%;             
+    table-layout: fixed;     /* Obliga a que todas las columnas tengan exactamente el mismo ancho */
+    border-collapse: collapse; /* Une los bordes de las celdas para que sea una sola línea fina */
+    margin-bottom: 2rem;
+}
+
+/* Estilo del título de la tabla */
+caption {
+    font-weight: bold;
+    font-size: 1.125rem;
+    color: #1E293B;
+    text-align: left;
+    margin-bottom: 0.75rem;
+}
+
+/* Bordes y espaciado para celdas y encabezados */
+th, td {
+    border: 1px solid #CBD5E1;
+    padding: 1rem;
+    text-align: left;
+}
+
+/* Destacamos el encabezado */
+th {
+    background-color: #0182A6; 
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+/* Efecto cebra: fondo alternado en las filas para facilitar la lectura */
+tbody tr:nth-child(even) {
+    background-color: #F8FAFC; 
+}
+
+/* Efecto hover: resalta la fila que el usuario está mirando */
+tbody tr:hover {
+    background-color: #E2E8F0;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 0.25rem;
+    border: 2px solid #0182A6;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+select {
+    padding: 0.25rem;
+    border: 2px solid #0182A6;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 /* Estilo para Mobile */
@@ -440,6 +497,50 @@ a{
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
+.seccion-beneficios {
+    padding: 2rem 1rem;
+}
+
+/* Quitamos los estilos feos que el navegador le da a las listas por defecto */
+.lista-beneficios {
+    list-style: none; /* Borra los puntitos negros */
+    padding: 0;       /* Quita la sangría izquierda por defecto de los ul */
+    margin: 0;
+    
+    /* Usamos Flexbox para apilarlos uno debajo del otro */
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem; /* Separación vertical entre cada tarjeta */
+}
+
+/* Estilizamos cada <li> como si fuera una tarjeta */
+.tarjeta-beneficio {
+    border: 1px solid #CBD5E1; /* Borde gris clarito */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    
+    /* Sombra súper suave para darle volumen */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Ajustes finos de los textos dentro de la tarjeta */
+.tarjeta-beneficio img {
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-beneficio h3 {
+    margin: 0 0 0.5rem 0; /* Quitamos margen superior, dejamos un poquito abajo */
+    font-size: 1.1rem;
+    color: #1E293B;
+}
+
+.tarjeta-beneficio p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
 /* Estilo para Desktop */
 @media (min-width: 768px) {
     /* Estilo para el encabezado en desktop */
@@ -562,8 +663,22 @@ a{
     .info-producto-carrito {
         flex: 1;
     }
+
     .seccion-carrito {
-    max-width: 1000px;
-    margin: 0 auto;
+        max-width: 1000px;
+        margin: 0 auto;
     }
+
+    .lista-beneficios {
+        /* Cambiamos la dirección para que se pongan uno al lado del otro */
+        flex-direction: row; 
+        justify-content: space-between;
+        gap: 2rem; /* Aumentamos la separación horizontal */
+    }
+
+    .tarjeta-beneficio {
+        /* Esto obliga a que las 3 tarjetas midan exactamente lo mismo de ancho */
+        flex: 1; 
+    }
+    
 }
