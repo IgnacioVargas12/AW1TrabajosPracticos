@@ -158,13 +158,13 @@ select {
 }
 
 .logo-principal img{
-    height: 50px; /* Achicamos el logo para mobile */
+    height: 50px; 
 }
 
 .iconos-derecha{
     order: 3;
     display: flex;
-    gap: 20px; /* Separación entre usuario y carrito */
+    gap: 20px; 
 }
 
 .iconos-derecha img{
@@ -227,14 +227,14 @@ select {
 .grilla-productos {
     display: grid;
     grid-template-columns: 1fr; /* 1 sola columna que ocupa todo el ancho */
-    gap: 1.5rem; /* Espacio entre cada tarjeta hacia abajo */
-    padding: 1rem 0; /* Un poco de aire arriba y abajo de la grilla completa */
+    gap: 1.5rem; 
+    padding: 1rem 0; 
 }
 
 .tarjeta-producto {
     background-color: #FFFFFF;
-    border: 1px solid #E2E8F0; /* Un borde gris extra claro */
-    border-radius: 8px; /* Bordes levemente redondeados */
+    border: 1px solid #E2E8F0;
+    border-radius: 8px; 
     padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
     margin: 1rem;
@@ -284,13 +284,13 @@ select {
 /* Fila del precio y descuento */
 .oferta-precio-fila {
     display: flex;
-    align-items: center; /* Centra el bloque rojo con el texto del precio */
-    gap: 1.5rem; /* Separación entre el porcentaje y el precio */
+    align-items: center; 
+    gap: 1.5rem; 
     margin-bottom: 1.5rem;
 }
 
 .etiqueta-descuento {
-    background-color: #DC2626; /* Fondo rojo */
+    background-color: #DC2626;
     color: #FFFFFF;
     font-weight: bold;
     padding: 0.4rem 0.8rem;
@@ -501,36 +501,32 @@ select {
     padding: 2rem 1rem;
 }
 
-/* Quitamos los estilos feos que el navegador le da a las listas por defecto */
 .lista-beneficios {
-    list-style: none; /* Borra los puntitos negros */
-    padding: 0;       /* Quita la sangría izquierda por defecto de los ul */
+    list-style: none; 
+    padding: 0;     
     margin: 0;
     
-    /* Usamos Flexbox para apilarlos uno debajo del otro */
     display: flex;
     flex-direction: column; 
-    gap: 1.5rem; /* Separación vertical entre cada tarjeta */
+    gap: 1.5rem; 
 }
 
 /* Estilizamos cada <li> como si fuera una tarjeta */
 .tarjeta-beneficio {
-    border: 1px solid #CBD5E1; /* Borde gris clarito */
-    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #CBD5E1; 
+    border-radius: 8px; 
     padding: 1.5rem;
     background-color: #FFFFFF;
     
-    /* Sombra súper suave para darle volumen */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Ajustes finos de los textos dentro de la tarjeta */
 .tarjeta-beneficio img {
     margin-bottom: 0.5rem;
 }
 
 .tarjeta-beneficio h3 {
-    margin: 0 0 0.5rem 0; /* Quitamos margen superior, dejamos un poquito abajo */
+    margin: 0 0 0.5rem 0; 
     font-size: 1.1rem;
     color: #1E293B;
 }
@@ -654,6 +650,7 @@ select {
     .campo-completo {
         grid-column: span 2;
     }
+
     /* Producto del carrito en Desktop */
     .producto-carrito {
         flex-direction: row;
@@ -670,15 +667,12 @@ select {
     }
 
     .lista-beneficios {
-        /* Cambiamos la dirección para que se pongan uno al lado del otro */
         flex-direction: row; 
         justify-content: space-between;
-        gap: 2rem; /* Aumentamos la separación horizontal */
+        gap: 2rem; 
     }
 
     .tarjeta-beneficio {
-        /* Esto obliga a que las 3 tarjetas midan exactamente lo mismo de ancho */
         flex: 1; 
     }
-    
 }
