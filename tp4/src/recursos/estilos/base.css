@@ -1,0 +1,688 @@
+/* Estilo base para toda la página */
+*{
+    box-sizing: border-box;
+}
+
+:root {
+    --margen-lateral: 15px;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url(./fuentes/Inter-Regular.ttf);
+}
+
+/* Selectores de tipo para ambas vistas */
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: Inter, sans-serif;
+    font-size: 1rem; 
+}
+
+body{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1,h2,h3,h4{
+    color: #1E293B;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;             
+    table-layout: fixed;     /* Obliga a que todas las columnas tengan exactamente el mismo ancho */
+    border-collapse: collapse; /* Une los bordes de las celdas para que sea una sola línea fina */
+    margin-bottom: 2rem;
+}
+
+/* Estilo del título de la tabla */
+caption {
+    font-weight: bold;
+    font-size: 1.125rem;
+    color: #1E293B;
+    text-align: left;
+    margin-bottom: 0.75rem;
+}
+
+/* Bordes y espaciado para celdas y encabezados */
+th, td {
+    border: 1px solid #CBD5E1;
+    padding: 1rem;
+    text-align: left;
+}
+
+/* Destacamos el encabezado */
+th {
+    background-color: #0182A6; 
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+/* Efecto cebra: fondo alternado en las filas para facilitar la lectura */
+tbody tr:nth-child(even) {
+    background-color: #F8FAFC; 
+}
+
+/* Efecto hover: resalta la fila que el usuario está mirando */
+tbody tr:hover {
+    background-color: #E2E8F0;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 0.25rem;
+    border: 2px solid #0182A6;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+select {
+    padding: 0.25rem;
+    border: 2px solid #0182A6;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+/* Selectores de clase para ambas vistas */
+.boton-principal{
+    background-color: #0182A6;
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton-secundario{
+    background-color: #CBD5E1;
+    color: #1E293B;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Estilo para encabezado */
+.contenido-encabezado{
+    background-color: #0182A6;
+}
+
+.contenido-encabezado a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Estilo para pie de página */
+.contenido-pie-pagina{
+    background-color: #15203a;
+    padding: 1rem var(--margen-lateral);
+}
+
+.contenido-pie-pagina li{
+    list-style: none;
+}
+
+.contenido-pie-pagina h2, .contenido-pie-pagina h3, .contenido-pie-pagina p, .contenido-pie-pagina a{
+    color: #CBD5E1;
+}
+
+/* Estilos base y mobile */
+/* Estilo para encabezado */
+.contenido-encabezado{
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos bajen a una nueva línea si no entran */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px var(--margen-lateral) 0; /* Margen lateral compartido con el resto de la página */
+}
+
+/* Fila Superior: Hamburguesa, Logo y Acciones */
+.btn-hamburguesa{
+    order: 1;
+    color: #FFFFFF;
+    font-size: 28px;
+}
+
+.logo-principal{
+    order: 2;
+    margin: 0 auto; /* Empuja el logo al centro exacto */
+}
+
+.logo-principal img{
+    height: 50px; 
+}
+
+.iconos-derecha{
+    order: 3;
+    display: flex;
+    gap: 20px; 
+}
+
+.iconos-derecha img{
+    height: 30px; 
+}
+
+/* Segunda Fila: Barra de Búsqueda */
+.barra-busqueda {
+    order: 4;
+    width: calc(100% + var(--margen-lateral) + var(--margen-lateral)); /* Extiende la búsqueda hasta los bordes del viewport */
+    margin-left: calc(0px - var(--margen-lateral));
+    margin-right: calc(0px - var(--margen-lateral));
+    margin-top: 10px;
+    background-color: #FFFFFF; 
+    padding: 10px 15px;
+    border: #15203a 1px solid;
+}
+
+/* Forzamos a que tanto el div interno como el input ocupen todo el ancho */
+.barra-busqueda div,
+.barra-busqueda input {
+    width: 100%;
+    display: block;
+}
+
+.barra-busqueda input {
+    padding: 8px;
+    border: none; 
+    outline: none;
+    font-family: inherit;
+}
+
+/* Menú oculto (Se activa al tocar la hamburguesa) */
+.menu-desplegable{
+    order: 5;
+    width: 100%;
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    background-color: #0182A6;
+    margin: 0 calc(0px - var(--margen-lateral)); /* Expande el menú hasta los bordes */
+}
+
+.menu-desplegable a{
+    color: #FFFFFF;
+    padding: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Funcionalidad del menú interactivo */
+#menu-toggle:checked ~ .menu-desplegable {
+    display: flex;
+}
+
+/* Estilo para el contenido principal en mobile */
+.contenido-principal{
+    padding: 1rem var(--margen-lateral);
+}
+
+.grilla-productos {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 sola columna que ocupa todo el ancho */
+    gap: 1.5rem; 
+    padding: 1rem 0; 
+}
+
+.tarjeta-producto {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px; 
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+/* Efecto Hover: Al pasar el mouse, la tarjeta se levanta un poco y la sombra se intensifica */
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen del producto en Mobile */
+.tarjeta-producto img {
+    width: 100%;
+    height: 250px; 
+    object-fit: contain; /* Garantiza que el envase no se deforme ni se corte */
+    margin-bottom: 1rem;
+}
+
+.tarjeta-oferta {
+    display: flex;
+    flex-direction: column; 
+    border: 1px solid #7DD3FC; 
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-oferta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-oferta img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+
+.tarjeta-oferta .oferta-contenido h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* Fila del precio y descuento */
+.tarjeta-oferta .oferta-precio-fila {
+    display: flex;
+    align-items: center; 
+    gap: 1.5rem; 
+    margin-bottom: 1.5rem;
+}
+
+.tarjeta-oferta .oferta-precio-fila .etiqueta-descuento {
+    background-color: #DC2626;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+}
+
+.tarjeta-oferta .oferta-precio-fila .precio-final {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Estilo para el pie de página en mobile */
+.contenido-pie-pagina iframe{
+    width: 100%;
+    height: 200px;
+}
+
+/* Estilos de la sección de Contacto */
+.info-atencion {
+    font-style: normal;
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.info-atencion h2 {
+    margin-top: 0;
+}
+
+.info-atencion a {
+    color: #0182A6;
+    font-weight: bold;
+}
+
+.contenedor-formulario {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.campo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.campo-form label {
+    font-weight: bold;
+    color: #1E293B;
+}
+
+.campo-form input,
+.campo-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+.campo-form input:focus,
+.campo-form textarea:focus {
+    border-color: #0182A6;
+    box-shadow: 0 0 0 2px rgba(1, 130, 166, 0.2);
+}
+
+.acciones-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+.acciones-form button {
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+/* Estilos de la sección Carrito */
+
+.seccion-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.seccion-carrito h1 {
+    margin-bottom: 0;
+}
+
+/* Información del producto */
+.producto-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.producto-carrito img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.producto-carrito h3 {
+    margin-top: 0;
+}
+
+/* Cantidad del producto */
+.cantidad-carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.cantidad-carrito input {
+    width: 70px;
+}
+
+/* Formulario de envío */
+.formulario-envio {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Selector de provincia */
+.seccion-carrito .campo-form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* Resumen de compra */
+.detalle-resumen {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.total-carrito {
+    border-top: 1px solid #E2E8F0;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.total-carrito strong {
+    color: #1E293B;
+    font-size: 1.2rem;
+}
+
+/* Espacio entre nota y botón */
+.resumen-carrito .acciones-form {
+    margin-top: 1rem;
+}
+
+/* Globo Flotante de WhatsApp */
+.globo-whatsapp-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    background-color: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Estilo para tu imagen Telefono.svg */
+.globo-whatsapp-flotante img {
+    width: 30px;
+    height: 30px;
+    /* Convierte el trazo negro de la imagen a blanco */
+    filter: brightness(0) invert(1); 
+    object-fit: contain;
+    margin: 0;
+}
+
+.globo-whatsapp-flotante:hover {
+    background-color: #1EBE5D;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.seccion-beneficios {
+    padding: 2rem var(--margen-lateral);
+}
+
+.contenido-principal .seccion-beneficios {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.lista-beneficios {
+    list-style: none; 
+    padding: 0;     
+    margin: 0;
+    
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem; 
+}
+
+/* Estilizamos cada <li> como si fuera una tarjeta */
+.tarjeta-beneficio {
+    border: 1px solid #CBD5E1; 
+    border-radius: 8px; 
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-beneficio img {
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-beneficio h3 {
+    margin: 0 0 0.5rem 0; 
+    font-size: 1.1rem;
+    color: #1E293B;
+}
+
+.tarjeta-beneficio p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+/* Estilo para Desktop */
+@media (min-width: 768px) {
+    :root {
+        --margen-lateral: 30px;
+    }
+
+    /* Estilo para el encabezado en desktop */
+    .contenido-encabezado {
+        display: flex;
+        flex-wrap: nowrap; /* Mantiene todos los elementos en una sola línea horizontal */
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px var(--margen-lateral); 
+        position: sticky;
+        top: 0px;
+        z-index: 1;
+    }
+
+    /* Ocultamos el botón de hamburguesa en PC */
+    .btn-hamburguesa {
+        display: none;
+    }
+
+    /* El logo deja de ser orden 2 y se ubica al principio */
+    .logo-principal {
+        order: 1;
+        margin: 0;
+    }
+
+    .logo-principal img {
+        height: 100px;
+    }
+
+    .iconos-derecha img{
+        height: 40px; 
+    }
+
+    /* La barra de búsqueda pasa al centro (orden 2) y se estira naturalmente */
+    .barra-busqueda {
+        order: 2;
+        width: auto;
+        flex: 1;                  /* Se expande para ocupar todo el centro disponible */
+        margin: 0 30px;          /* Espacio a los lados respecto al logo y los íconos */
+        border-radius: 6px;      
+        border: 1px solid #CBD5E1;
+    }
+
+    /* Los íconos de usuario y carrito van a la derecha (orden 3) */
+    .iconos-derecha {
+        order: 3;
+    }
+
+    /* El menú desplegable pasa a mostrarse siempre horizontal en el header */
+    .menu-desplegable {
+        display: flex;
+        position: static;
+        width: auto;
+        flex-direction: row;
+        background-color: transparent;
+        margin: 0;
+    }
+
+    .menu-desplegable a {
+        border-bottom: none;
+    }
+
+    /* Estilo para el main en desktop */
+    .grilla-productos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .tarjeta-producto img {
+        height: 400px; 
+    }
+
+    .tarjeta-oferta {
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .oferta-imagen {
+        flex: 1;
+        margin: 0;
+    }
+
+    .oferta-contenido {
+        flex: 1.5;
+    }
+
+    /* Estilo para el pie de página en desktop */
+    .contenido-pie-pagina iframe {
+        width: 500px;
+        height: 400px;
+    }
+
+    /* Ajuste de sección de contacto en Desktop */
+    .seccion-contacto {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .formulario-contacto {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .formulario-contacto .campo-completo {
+        grid-column: span 2;
+    }
+
+    /* Producto del carrito en Desktop */
+    .producto-carrito {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .producto-carrito .info-producto-carrito {
+        flex: 1;
+    }
+
+    .seccion-carrito {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .lista-beneficios {
+        flex-direction: row; 
+        justify-content: space-between;
+        gap: 2rem; 
+    }
+
+    .tarjeta-beneficio {
+        flex: 1; 
+    }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Apex Fit - Carrito de compras</title>
+        <link rel="stylesheet" href="./recursos/estilos/base.css">
+    </head>
+
+    <body>
+        <header class="contenido-encabezado">
+            <!-- 1. Botón Hamburguesa (Checkbox Hack) -->
+            <input type="checkbox" id="menu-toggle" hidden>
+            <label for="menu-toggle" class="btn-hamburguesa" aria-label="Abrir menú">☰</label>
+
+            <!-- 2. Logo Central -->
+            <a href="./index.html" class="logo-principal" aria-label="Volver a la página principal">
+                <img src="./recursos/imagenes/logos/imagotipo_blanco.webp" alt="Logo de Apex Fit"> 
+            </a>
+
+            <!-- 3. Contenedor para agrupar Usuario y Carrito a la derecha -->
+            <div class="iconos-derecha">
+                <a href="./login.html" aria-label="Ir al perfil de usuario">
+                    <img src="./recursos/imagenes/elementos/logo_usuario_blanco.webp" alt="Logo de usuario">
+                </a>
+                <a href="./carrito.html" aria-label="Ir al carrito de compras">
+                    <img src="./recursos/imagenes/elementos/logo_carrito_blanco.webp" alt="Logo de carrito">
+                </a>
+            </div>
+
+            <!-- 4. Buscador (Pasará a la segunda línea) -->
+            <form role="search" action="#" method="get" class="barra-busqueda">
+                <div>
+                    <label for="id_buscar" hidden>Buscar productos</label>
+                    <input type="search" id="id_buscar" name="busqueda" placeholder="¿Qué estás buscando?">
+                </div>
+            </form>
+
+            <!-- 5. Menú de navegación (Oculto por defecto) -->
+            <nav class="menu-desplegable">
+                <a href="./index.html">Inicio</a>
+                <a href="./catalogo.html" aria-label="Ir al catálogo">Catálogo</a>
+                <a href="./blog.html" aria-label="Ir al blog">Blog</a>
+                <a href="./ofertas.html" aria-label="Ir a las ofertas">Ofertas</a>
+                <a href="./contacto.html" aria-label="Ir al contacto">Contacto</a>
+            </nav>
+        </header>
+
+        <main class="contenido-principal seccion-carrito">
+            <h1>Carrito de compras</h1>
+            <section class="contenedor-formulario">
+                <h2>Productos en el carrito</h2>
+                <article class="producto-carrito">
+                    <img src="./recursos/imagenes/productos/suplementos/whey_protein_ena.webp" alt="Whey Protein Concentrada 1kg" width="100">
+                    <div class="info-producto-carrito">
+                        <h3>Whey Protein Concentrada 1kg</h3>
+                        <p>Proteína en polvo sabor chocolate.</p>
+                        <p><strong>$49.999</strong></p>
+                    </div>
+                    <form action="#" method="post" class="cantidad-carrito">
+                        <div class="campo-form">
+                            <label for="id-cantidad">Cantidad</label>
+                            <input type="number" id="id-cantidad" name="cantidad" min="1" max="10" value="1" required>
+                        </div>
+                        <button type="submit" class="boton-secundario">
+                            Quitar
+                        </button>
+                    </form>
+                </article>
+            </section>
+            <section class="contenedor-formulario">
+                <h2>Calcular gastos de envío</h2>
+                <div>
+                    <form action="#" method="get" class="formulario-envio">
+                        <div class="campo-form">
+                            <label for="id-provincia">Provincia</label>
+                            <select id="id-provincia" name="provincia" required>
+                                <option value="" disabled selected>Selecciona tu provincia</option>
+                                <option value="buenos-aires">Buenos Aires</option>
+                                <option value="caba">Ciudad Autónoma de Buenos Aires</option>
+                                <option value="catamarca">Catamarca</option>
+                                <option value="chaco">Chaco</option>
+                                <option value="chubut">Chubut</option>
+                                <option value="cordoba">Córdoba</option>
+                                <option value="corrientes">Corrientes</option>
+                                <option value="entre-rios">Entre Ríos</option>
+                                <option value="formosa">Formosa</option>
+                                <option value="jujuy">Jujuy</option>
+                                <option value="la-pampa">La Pampa</option>
+                                <option value="la-rioja">La Rioja</option>
+                                <option value="mendoza">Mendoza</option>
+                                <option value="misiones">Misiones</option>
+                                <option value="neuquen">Neuquén</option>
+                                <option value="rio-negro">Río Negro</option>
+                                <option value="salta">Salta</option>
+                                <option value="san-juan">San Juan</option>
+                                <option value="san-luis">San Luis</option>
+                                <option value="santa-cruz">Santa Cruz</option>
+                                <option value="santa-fe">Santa Fe</option>
+                                <option value="santiago-del-estero">Santiago del Estero</option>
+                                <option value="tierra-del-fuego">Tierra del Fuego</option>
+                                <option value="tucuman">Tucumán</option>
+                            </select>
+                        </div>
+                        <div class="campo-form">
+                            <label for="id-codigo-postal">Código postal</label>
+                            <input type="text" id="id-codigo-postal" name="codigo-postal" placeholder="Código postal">
+                        </div>
+                        <div class="acciones-form">
+                            <button type="submit" class="boton-principal">Consultar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <aside class="contenedor-formulario resumen-carrito">
+                <h2>Resumen de compra</h2>
+                <div class="detalle-resumen">
+                    <p>Subtotal:</p>
+                    <p><strong>$49.999</strong></p>
+                </div>
+                <div class="detalle-resumen">
+                    <p>Envío:</p>
+                    <p><strong>A calcular</strong></p>
+                </div>
+                <div class="detalle-resumen total-carrito">
+                    <p><strong>Total:</strong></p>
+                    <p><strong>$49.999</strong></p>
+                </div>
+                <form action="#" method="post">
+                    <div class="campo-form">
+                        <label for="id-nota">Nota del pedido</label>
+                        <textarea name="nota" id="id-nota" rows="5"></textarea>
+                    </div>
+                    <div class="acciones-form">
+                        <button type="submit" class="boton-principal">Finalizar compra</button>
+                    </div>
+                </form>
+            </aside>
+        </main>
+
+        <footer class="contenido-pie-pagina">
+            <h2>Apex Fitness</h2>
+            <p>Tu tienda de confianza en suplementación deportiva y rendimiento físico.</p>
+    
+            <div>
+                <h3>Navegación</h3>
+                <ul>
+                    <li>
+                        <a href="./index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="./catalogo.html">Catálogo de Productos</a>
+                    </li>
+                    <li>
+                        <a href="./ofertas.html">Ofertas Especiales</a>
+                    </li>
+                    <li>
+                        <a href="./blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="./contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Contacto</h3>
+                <address>
+                    <p>Email: <a href="mailto:contacto@apexfitness.com">contacto@apexfitness.com</a></p>
+                    <p>Teléfono: <a href="tel:+543511234567">+54 (351) 123-4567</a></p>
+                    <p>Ubicación: Córdoba, Argentina</p>
+                </address>
+
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="https://instagram.com/@ApexFitness" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://facebook.com/@ApexFitness" target="_blank" rel="noopener">Facebook</a></li>
+                    <li><a href="https://tiktok.com/@ApexFitness" target="_blank" rel="noopener">TikTok</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p><small>&copy; 2026 Apex Fitness. Todos los derechos reservados. Proyecto académico - Aplicaciones Web I.</small></p>
+            </div>
+        </footer>
+    </body>
+</html>
