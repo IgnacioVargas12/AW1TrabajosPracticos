@@ -1,6 +1,6 @@
 //  Importaciones
 import {productos} from './productos.js'
-import {renderizarProductos, filtrarPorCategoria, ordenarProductos, obtenerProductoPorId, renderizarDetalle} from './funciones.js'
+import {renderizarProductos, filtrarPorCategoria, ordenarProductos, obtenerProductoPorId, renderizarDetalle, renderizarOfertas} from './funciones.js'
 
 // ---Vista de catálogo (catalogo.html) ---
 //  Referencias DOM
@@ -10,10 +10,10 @@ const selectOrdenar = document.getElementById("id-ordenar");
 
 //  Funciones
 //Estado actual (para mantener el filtro activo si luego ordenamos, o viceversa)
-let productosActuales = productos;
+let productosActuales = productos.filter(producto => producto.enOferta === false);
 if (contenedorProductos) {
     //Función que carga todos los productos
-    renderizarProductos(contenedorProductos, productos);
+    renderizarProductos(contenedorProductos, productosActuales);
 
     //  Eventos
     //Evento para el filtrado de categorías (Usando 'click' y un bucle para cada <a>)
@@ -54,4 +54,13 @@ if (contenedorDetalle) {
     
     const productoSeleccionado = obtenerProductoPorId(idProducto, productos);
     renderizarDetalle(contenedorDetalle, productoSeleccionado);
+}
+
+
+
+// ---Vista de ofertas (ofertas.html) ---
+const contenedorOfertas = document.getElementById('contenedor-ofertas');
+if (contenedorOfertas) {
+    // Ejecutamos la función de renderizado de ofertas pasándole los datos
+    renderizarOfertas(contenedorOfertas, productos);
 }

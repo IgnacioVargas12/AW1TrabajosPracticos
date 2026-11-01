@@ -14,7 +14,7 @@ const renderizarProductos = (contenedor, arregloProductos) => {
                     </figure>
                     <h3>${producto.nombre}</h3>
                     <p>${producto.descripcion}</p>
-                    <p><strong>$${producto.precio}</strong></p>
+                    <p><strong>$${producto.precioFinal.toLocaleString()}</strong></p>
                     <a href="./detalle_producto.html?id=${producto.id}" class="boton-principal">Ver detalle</a>
                 </article>
         `;
@@ -27,7 +27,7 @@ const renderizarProductos = (contenedor, arregloProductos) => {
 //Función de filtrado por categoría
 const filtrarPorCategoria = (categoriaSeleccionada) => {
     if (categoriaSeleccionada === "Todas") {
-        return productos; // Devuelve todos si elige "Todas"
+        return productos.filter(prod => prod.categoria !== "Ofertas"); // Devuelve todos excepto los de la categoría "Ofertas"
     }
     // Filtra el array original según la categoría
     return productos.filter(prod => prod.categoria === categoriaSeleccionada);
@@ -67,7 +67,7 @@ const renderizarDetalle = (contenedor, producto) => {
     producto.nutricion.forEach(item => {
         filasNutricionHTML += `
             <tr>
-                <td>${item.nutriente}</td>
+                <td><strong>${item.nutriente}</strong></td>
                 <td>${item.cantidad}</td>
             </tr>
         `;
@@ -75,19 +75,20 @@ const renderizarDetalle = (contenedor, producto) => {
 
     // 2. Inyectamos todo el bloque HTML en el contenedor principal
     contenedor.innerHTML = `
+        <h1>Detalle del Producto</h1>
         <section class="tarjeta-oferta">
             <figure>
                 <img src="${producto.imagen}" alt="${producto.nombre}" height="400">
             </figure>
             <div>
                 <h2>${producto.nombre}</h2>
-                <p>Marca: ${producto.marca}</p>
-                <p><strong>$${producto.precio.toLocaleString()}</strong> (${producto.cuotas})</p>
+                <p><strong>Marca:</strong> ${producto.marca}</p>
+                <p><strong>$${producto.precioFinal.toLocaleString()}</strong> ${producto.cuotas}</p>
                 <p>${producto.descripcion}</p>
-                <p>Sabor: ${producto.sabor}</p>
+                <p><strong>Sabor:</strong> ${producto.sabor}</p>
                 <form action="./carrito.html" method="post">
                     <div>
-                        <label for="id-cantidad">Cantidad:</label>
+                        <label for="id-cantidad"><strong>Cantidad:</strong></label>
                         <input type="number" id="id-cantidad" name="cantidad" min="1" value="1" max="10" required>
                         <button type="submit" class="boton-principal">Agregar al carrito</button>
                     </div>
@@ -112,4 +113,78 @@ const renderizarDetalle = (contenedor, producto) => {
         </section>
     `;
 };
-export {renderizarProductos, filtrarPorCategoria, ordenarProductos, obtenerProductoPorId, renderizarDetalle};
+
+
+// Función para cargar las Ofertas en la página de Ofertas (ofertas.html)
+const renderizarOfertas = (contenedor, arregloProductos) => {
+    // Filtramos los productos que están en oferta
+    const productosEnOferta = arregloProductos.filter(prod => prod.enOferta === true);
+
+    if (productosEnOferta.length === 0) {
+        contenedor.innerHTML = "<p>No hay ofertas disponibles por el momento.</p>";
+        return;
+    }
+
+    // 2. Separamos el primer producto como el "Combo imperdible" y el resto como "Otros productos"
+    const comboImperdible = productosEnOferta[0];
+    const otrosProductos = productosEnOferta.slice(1);
+
+    let htmlOfertas = '<h1>Ofertas</h1>';
+
+    // 3. Generamos la sección de "Combo imperdible"
+    if (comboImperdible) {
+        htmlOfertas += `
+            <section>
+                <h2>Combo imperdible</h2>
+                <article class="tarjeta-oferta">
+                    <figure class="oferta-imagen">
+                        <a href="./detalle_producto.html?id=${comboImperdible.id}">
+                            <img src="${comboImperdible.imagen}" alt="${comboImperdible.nombre}">
+                        </a>
+                    </figure>
+                    <div class="oferta-contenido">
+                        <h3>${comboImperdible.nombre}</h3>
+                        <div class="oferta-precio-fila">
+                            <span class="etiqueta-descuento">${comboImperdible.descuento * 100}% OFF</span>
+                            <span class="precio-final">$${comboImperdible.precioFinal.toLocaleString()}</span>
+                        </div>
+                        <p>${comboImperdible.descripcion}</p>
+                        <a href="./carrito.html" class="boton-principal">Agregar al carrito</a>
+                    </div>
+                </article>
+            </section>
+        `;
+    }
+
+    // 4. Generamos la sección de "Otros productos en oferta" si existen
+    if (otrosProductos.length > 0) {
+        htmlOfertas += `<section><h2>Otros productos en oferta</h2>`;
+        
+        otrosProductos.forEach(producto => {
+            htmlOfertas += `
+                <article class="tarjeta-oferta">
+                    <figure class="oferta-imagen">
+                        <a href="./detalle_producto.html?id=${producto.id}">
+                            <img src="${producto.imagen}" alt="${producto.nombre}">
+                        </a>
+                    </figure>
+                    <div class="oferta-contenido">
+                        <h3>${producto.nombre}</h3>
+                        <div class="oferta-precio-fila">
+                            <span class="etiqueta-descuento">${producto.descuento * 100}% OFF</span>
+                            <span class="precio-final">$${producto.precioFinal.toLocaleString()}</span>
+                        </div>
+                        <p>${producto.descripcion}</p>
+                        <a href="./carrito.html" class="boton-principal">Agregar al carrito</a>
+                    </div>
+                </article>
+            `;
+        });
+
+        htmlOfertas += `</section>`;
+    }
+
+    // Inyectamos todo en el contenedor general
+    contenedor.innerHTML = htmlOfertas;
+};
+export {renderizarProductos, filtrarPorCategoria, ordenarProductos, obtenerProductoPorId, renderizarDetalle, renderizarOfertas};
