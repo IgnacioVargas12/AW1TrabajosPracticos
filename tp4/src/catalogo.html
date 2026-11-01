@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Apex Fit - Catálogo</title>
         <link rel="stylesheet" href="./recursos/estilos/base.css">
+        <script type="module" src="./recursos/js/index.js"></script>
     </head>
 
     <body>
@@ -49,13 +50,11 @@
         <main class="contenido-principal">
             <h1>Catálogo de Productos</h1>
             <h2>Categorías</h2>
-                <ul>
+                <ul class="lista-categorias">
                     <li><a href="#">Todas</a></li>
                     <li><a href="#">Proteínas</a></li>
                     <li><a href="#">Creatinas</a></li>
-                    <li><a href="#">Pre-Entrenos</a></li>
-                    <li><a href="#">Aminoácidos / BCAA</a></li>
-                    <li><a href="#">Accesorios</a></li>
+                    <li><a href="#">Otros</a></li>
                 </ul>
             <section>
                 <label for="id-ordenar">Ordenar por:</label>
@@ -67,8 +66,8 @@
                 </select>
             </section>
             <h2>Nuestros Productos</h2>
-            <section class="grilla-productos">
-                <article class="tarjeta-producto">
+            <section id = "contenedor-productos" class="grilla-productos">
+                <!-- <article class="tarjeta-producto">
                     <figure>
                         <a href="./detalle_producto.html">
                             <img src="recursos/imagenes/productos/suplementos/whey_protein_ena.webp" alt="Whey Protein Concentrada 1kg">
@@ -115,7 +114,7 @@
                     <p>Aminoácidos de cadena ramificada para evitar el catabolismo.</p>
                     <p><strong>$49.999</strong></p>
                     <a href="./detalle_producto.html" class="boton-principal">Ver detalle</a>
-                </article>
+                </article> -->
             </section>
         </main>
 
