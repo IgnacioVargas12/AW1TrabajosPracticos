@@ -16,12 +16,12 @@ if (contenedorProductos) {
     renderizarProductos(contenedorProductos, productosActuales);
 
     //  Eventos
-    //Evento para el filtrado de categorías (Usando 'click' y un bucle para cada <a>)
+    //  Evento para el filtrado de categorías (Usando 'click' y un bucle para cada <a>)
     enlacesCategorias.forEach(enlace => {
         enlace.addEventListener("click", (e) => {
             e.preventDefault(); // Evita que la página suba por el href="#"
             
-            const categoriaElegida = e.target.textContent; // Captura el texto ("Proteínas", "Creatinas", etc.)
+            const categoriaElegida = e.target.textContent;
             
             // Usamos la función genérica pasando la categoría
             productosActuales = filtrarPorCategoria(categoriaElegida);
@@ -45,8 +45,10 @@ if (contenedorProductos) {
 
 
 // ---Vista de detalle (detalle_producto.html) ---
+// Referencias DOM
 const contenedorDetalle = document.getElementById('contenedor-detalle');
 
+//  Funciones
 if (contenedorDetalle) {
     // Si estamos en la página de detalle, leemos la URL y renderizamos
     const urlParams = new URLSearchParams(window.location.search);
@@ -59,7 +61,10 @@ if (contenedorDetalle) {
 
 
 // ---Vista de ofertas (ofertas.html) ---
+//  Referencias DOM
 const contenedorOfertas = document.getElementById('contenedor-ofertas');
+
+//  Funciones
 if (contenedorOfertas) {
     // Ejecutamos la función de renderizado de ofertas pasándole los datos
     renderizarOfertas(contenedorOfertas, productos);

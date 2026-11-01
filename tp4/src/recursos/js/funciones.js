@@ -62,7 +62,7 @@ const renderizarDetalle = (contenedor, producto) => {
         return;
     }
 
-    // 1. Recorremos el array de nutrición para armar las filas <tr> de la tabla dinámicamente
+    // Recorremos el array de nutrición para armar las filas <tr> de la tabla dinámicamente
     let filasNutricionHTML = "";
     producto.nutricion.forEach(item => {
         filasNutricionHTML += `
@@ -73,7 +73,7 @@ const renderizarDetalle = (contenedor, producto) => {
         `;
     });
 
-    // 2. Inyectamos todo el bloque HTML en el contenedor principal
+    // Cargamos todo el bloque HTML en el contenedor principal
     contenedor.innerHTML = `
         <h1>Detalle del Producto</h1>
         <section class="tarjeta-oferta">
@@ -125,13 +125,13 @@ const renderizarOfertas = (contenedor, arregloProductos) => {
         return;
     }
 
-    // 2. Separamos el primer producto como el "Combo imperdible" y el resto como "Otros productos"
+    //  Separamos el primer producto como el "Combo imperdible" y el resto como "Otros productos"
     const comboImperdible = productosEnOferta[0];
     const otrosProductos = productosEnOferta.slice(1);
 
     let htmlOfertas = '<h1>Ofertas</h1>';
 
-    // 3. Generamos la sección de "Combo imperdible"
+    // Generamos la sección de "Combo imperdible"
     if (comboImperdible) {
         htmlOfertas += `
             <section>
@@ -156,7 +156,7 @@ const renderizarOfertas = (contenedor, arregloProductos) => {
         `;
     }
 
-    // 4. Generamos la sección de "Otros productos en oferta" si existen
+    // Generamos la sección de "Otros productos en oferta" si existen
     if (otrosProductos.length > 0) {
         htmlOfertas += `<section><h2>Otros productos en oferta</h2>`;
         
@@ -184,7 +184,7 @@ const renderizarOfertas = (contenedor, arregloProductos) => {
         htmlOfertas += `</section>`;
     }
 
-    // Inyectamos todo en el contenedor general
+    // Cargamos todo en el contenedor general
     contenedor.innerHTML = htmlOfertas;
 };
 export {renderizarProductos, filtrarPorCategoria, ordenarProductos, obtenerProductoPorId, renderizarDetalle, renderizarOfertas};
