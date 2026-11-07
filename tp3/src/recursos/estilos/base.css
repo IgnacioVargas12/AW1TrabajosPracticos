@@ -635,12 +635,7 @@ select {
         height: 400px;
     }
 
-    /* Ajuste de sección de contacto en Desktop */
-    .seccion-contacto {
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
+ 
     .formulario-contacto {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

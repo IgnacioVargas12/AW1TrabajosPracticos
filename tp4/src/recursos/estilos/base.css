@@ -3,10 +3,6 @@
     box-sizing: border-box;
 }
 
-:root {
-    --margen-lateral: 15px;
-}
-
 @font-face {
     font-family: Inter;
     src: url(./fuentes/Inter-Regular.ttf);
@@ -37,6 +33,50 @@ h1,h2,h3,h4{
 a{
     text-decoration: none;
     font-weight: bold;
+}
+
+/* Selectores de clase para ambas vistas */
+.boton-principal{
+    background-color: #0182A6;
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton-secundario{
+    background-color: #CBD5E1;
+    color: #1E293B;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Estilo para encabezado */
+.contenido-encabezado{
+    background-color: #0182A6;
+}
+
+.contenido-encabezado a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Estilo para pie de página */
+.contenido-pie-pagina{
+    background-color: #15203a;
+    padding: 1rem;
+}
+
+.contenido-pie-pagina li{
+    list-style: none;
+}
+
+.contenido-pie-pagina h2, .contenido-pie-pagina h3, .contenido-pie-pagina p, .contenido-pie-pagina a{
+    color: #CBD5E1;
 }
 
 table {
@@ -95,59 +135,14 @@ select {
     font-weight: bold;
 }
 
-
-/* Selectores de clase para ambas vistas */
-.boton-principal{
-    background-color: #0182A6;
-    color: #FFFFFF;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.boton-secundario{
-    background-color: #CBD5E1;
-    color: #1E293B;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Estilo para encabezado */
-.contenido-encabezado{
-    background-color: #0182A6;
-}
-
-.contenido-encabezado a{
-    text-decoration: none;
-    color: #FFFFFF;
-    font-weight: bold;
-}
-
-/* Estilo para pie de página */
-.contenido-pie-pagina{
-    background-color: #15203a;
-    padding: 1rem var(--margen-lateral);
-}
-
-.contenido-pie-pagina li{
-    list-style: none;
-}
-
-.contenido-pie-pagina h2, .contenido-pie-pagina h3, .contenido-pie-pagina p, .contenido-pie-pagina a{
-    color: #CBD5E1;
-}
-
-/* Estilos base y mobile */
+/* Estilo para Mobile */
 /* Estilo para encabezado */
 .contenido-encabezado{
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos bajen a una nueva línea si no entran */
     align-items: center;
     justify-content: space-between;
-    padding: 10px var(--margen-lateral) 0; /* Margen lateral compartido con el resto de la página */
+    padding: 10px 15px 0 15px; /* Padding superior y lateral */
 }
 
 /* Fila Superior: Hamburguesa, Logo y Acciones */
@@ -179,9 +174,9 @@ select {
 /* Segunda Fila: Barra de Búsqueda */
 .barra-busqueda {
     order: 4;
-    width: calc(100% + var(--margen-lateral) + var(--margen-lateral)); /* Extiende la búsqueda hasta los bordes del viewport */
-    margin-left: calc(0px - var(--margen-lateral));
-    margin-right: calc(0px - var(--margen-lateral));
+    width: calc(100% + 30px); /* Compensa exactamente los 15px de padding izquierdo y derecho del header */
+    margin-left: -15px;      /* Tira el formulario hacia el borde izquierdo absoluto */
+    margin-right: -15px;     /* Tira el formulario hacia el borde derecho absoluto */
     margin-top: 10px;
     background-color: #FFFFFF; 
     padding: 10px 15px;
@@ -209,7 +204,7 @@ select {
     display: none; /* Oculto por defecto */
     flex-direction: column;
     background-color: #0182A6;
-    margin: 0 calc(0px - var(--margen-lateral)); /* Expande el menú hasta los bordes */
+    margin: 0 -15px; /* Expande el menú hasta los bordes */
 }
 
 .menu-desplegable a{
@@ -226,7 +221,7 @@ select {
 
 /* Estilo para el contenido principal en mobile */
 .contenido-principal{
-    padding: 1rem var(--margen-lateral);
+    padding: 1rem;   
 }
 
 .grilla-productos {
@@ -242,7 +237,7 @@ select {
     border-radius: 8px; 
     padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin: 0;
+    margin: 1rem;
 }
 
 /* Efecto Hover: Al pasar el mouse, la tarjeta se levanta un poco y la sombra se intensifica */
@@ -266,7 +261,7 @@ select {
     border-radius: 8px;
     background-color: #FFFFFF;
     padding: 1.5rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -281,20 +276,20 @@ select {
     object-fit: contain;
 }
 
-.tarjeta-oferta .oferta-contenido h3 {
+.oferta-contenido h3 {
     margin-top: 0;
     margin-bottom: 1.5rem;
 }
 
 /* Fila del precio y descuento */
-.tarjeta-oferta .oferta-precio-fila {
+.oferta-precio-fila {
     display: flex;
     align-items: center; 
     gap: 1.5rem; 
     margin-bottom: 1.5rem;
 }
 
-.tarjeta-oferta .oferta-precio-fila .etiqueta-descuento {
+.etiqueta-descuento {
     background-color: #DC2626;
     color: #FFFFFF;
     font-weight: bold;
@@ -302,7 +297,7 @@ select {
     border-radius: 4px;
 }
 
-.tarjeta-oferta .oferta-precio-fila .precio-final {
+.precio-final {
     font-size: 1.5rem;
     font-weight: bold;
     color: #000000;
@@ -503,12 +498,7 @@ select {
 }
 
 .seccion-beneficios {
-    padding: 2rem var(--margen-lateral);
-}
-
-.contenido-principal .seccion-beneficios {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 2rem 1rem;
 }
 
 .lista-beneficios {
@@ -549,17 +539,13 @@ select {
 
 /* Estilo para Desktop */
 @media (min-width: 768px) {
-    :root {
-        --margen-lateral: 30px;
-    }
-
     /* Estilo para el encabezado en desktop */
     .contenido-encabezado {
         display: flex;
         flex-wrap: nowrap; /* Mantiene todos los elementos en una sola línea horizontal */
         justify-content: space-between;
         align-items: center;
-        padding: 15px var(--margen-lateral); 
+        padding: 15px 30px; 
         position: sticky;
         top: 0px;
         z-index: 1;
@@ -619,6 +605,10 @@ select {
         gap: 2rem;
     }
     
+    .tarjeta-producto {
+        margin: 1.5%;
+    }
+
     .tarjeta-producto img {
         height: 400px; 
     }
@@ -628,7 +618,6 @@ select {
         align-items: center;
         gap: 2rem;
         padding: 2rem;
-        margin-bottom: 1rem;
     }
 
     .oferta-imagen {
@@ -646,19 +635,14 @@ select {
         height: 400px;
     }
 
-    /* Ajuste de sección de contacto en Desktop */
-    .seccion-contacto {
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
+ 
     .formulario-contacto {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1.25rem;
     }
 
-    .formulario-contacto .campo-completo {
+    .campo-completo {
         grid-column: span 2;
     }
 
@@ -668,7 +652,7 @@ select {
         align-items: center;
     }
 
-    .producto-carrito .info-producto-carrito {
+    .info-producto-carrito {
         flex: 1;
     }
 
