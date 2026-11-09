@@ -9,7 +9,7 @@ const renderizarProductos = (contenedor, arregloProductos) => {
             <article class="tarjeta-producto">
                     <figure>
                         <a href="./detalle_producto.html?id=${producto.id}">
-                            <img src= ${producto.imagen} alt=${producto.nombre}>
+                            <img src= "${producto.imagen}" alt="${producto.nombre}">
                         </a>
                     </figure>
                     <h3>${producto.nombre}</h3>
