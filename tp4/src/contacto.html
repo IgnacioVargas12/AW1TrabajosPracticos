@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Apex Fit - Contacto</title>
         <link rel="stylesheet" href="./recursos/estilos/base.css">
+        <script type="module" src="./recursos/js/index.js"></script>
     </head>
 
     <body>
@@ -60,7 +61,8 @@
 
                 <div class="contenedor-formulario">
                     <h2>Envianos tu consulta</h2>
-                    <form action="#" method="post" class="formulario-contacto">
+                    <div id="mensaje-formulario" role="alert"></div>
+                    <form id="formulario-contacto" action="#" method="post" class="formulario-contacto" novalidate>
                         <div class="campo-form">
                             <label for="id-nombre">Nombre</label>
                             <input type="text" name="nombre" id="id-nombre" required placeholder="Tu nombre">

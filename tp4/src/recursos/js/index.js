@@ -1,6 +1,6 @@
 //  Importaciones
 import {productos} from './productos.js'
-import {renderizarProductos, filtrarPorCategoria, ordenarProductos, obtenerProductoPorId, renderizarDetalle, renderizarOfertas} from './funciones.js'
+import {renderizarProductos, filtrarPorCategoria, ordenarProductos, obtenerProductoPorId, renderizarDetalle, renderizarOfertas, construirJSONContacto, validarContacto, enviarContacto, mostrarMensajeContacto} from './funciones.js'
 
 // ---Vista de catálogo (catalogo.html) ---
 //  Referencias DOM
@@ -68,4 +68,40 @@ const contenedorOfertas = document.getElementById('contenedor-ofertas');
 if (contenedorOfertas) {
     // Ejecutamos la función de renderizado de ofertas pasándole los datos
     renderizarOfertas(contenedorOfertas, productos);
+}
+
+
+
+// ---Vista de contacto (contacto.html) ---
+// Referencias DOM
+const formularioContacto = document.getElementById('formulario-contacto');
+const mensajeFormulario = document.getElementById('mensaje-formulario');
+
+if (formularioContacto) {
+    formularioContacto.addEventListener("submit", async (e) => {
+        e.preventDefault(); // Evita que la página se recargue
+
+        const datos = construirJSONContacto(formularioContacto);
+        const errores = validarContacto(datos);
+
+        if (errores.length > 0) {
+            mostrarMensajeContacto(mensajeFormulario, errores, true);
+            return;
+        }
+
+        try {
+            const resultado = await enviarContacto(datos);
+            console.log("Respuesta del servidor:", resultado);
+            mostrarMensajeContacto(mensajeFormulario, ["¡Gracias! Tu consulta fue enviada correctamente."], false);
+            formularioContacto.reset();
+        } catch (error) {
+            mostrarMensajeContacto(mensajeFormulario, ["No pudimos enviar tu consulta. Intentá de nuevo más tarde."], true);
+            console.error(error);
+        }
+    });
+
+    // Si el usuario toca "Limpiar", también borramos el mensaje
+    formularioContacto.addEventListener("reset", () => {
+        mensajeFormulario.innerHTML = "";
+    });
 }
