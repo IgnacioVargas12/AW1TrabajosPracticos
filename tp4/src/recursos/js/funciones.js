@@ -180,7 +180,6 @@ const renderizarOfertas = (contenedor, arregloProductos) => {
                 </article>
             `;
         });
-
         htmlOfertas += `</section>`;
     }
 
